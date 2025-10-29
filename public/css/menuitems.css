@@ -1,0 +1,695 @@
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('{{ asset("fonts/sf-pro-display/SFPRODISPLAYREGULAR.OTF") }}') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('{{ asset("fonts/sf-pro-display/SFPRODISPLAYMEDIUM.OTF") }}') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url('{{ asset("fonts/sf-pro-display/SFPRODISPLAYBOLD.OTF") }}') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+  --mcdonalds-red: #DA291C;
+  --mcdonalds-yellow: #FFC72C;
+  --mcdonalds-dark-red: #B71C1C;
+  --mcdonalds-light-yellow: #FFD54F;
+  --white: #FFFFFF;
+  --light-gray: #F5F5F5;
+  --gray: #9E9E9E;
+  --dark-gray: #424242;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.2);
+  --success: #4CAF50;
+  --error: #F44336;
+  --warning: #FF9800;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.5;
+    color: var(--dark-gray);
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+/* Header Styles */
+header {
+  background: linear-gradient(135deg, var(--mcdonalds-red) 0%, var(--mcdonalds-dark-red) 100%);
+  color: var(--white);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 12px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+nav a:hover {
+  background-color: var(--mcdonalds-yellow);
+  color: var(--mcdonalds-red);
+  transform: translateY(-2px);
+}
+
+/* Main Content */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+/* Page Headers */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 3px solid var(--mcdonalds-yellow);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: var(--mcdonalds-red);
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Buttons */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px var(--shadow);
+  text-align: center;
+  margin: 0.25rem;
+  height: 3rem;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--shadow-hover);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--mcdonalds-yellow) 0%, var(--mcdonalds-light-yellow) 100%);
+  color: var(--mcdonalds-red);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--mcdonalds-light-yellow) 0%, var(--mcdonalds-yellow) 100%);
+}
+
+.btn-secondary {
+  background: var(--white);
+  color: var(--mcdonalds-red);
+  border: 2px solid var(--mcdonalds-red);
+}
+
+.btn-secondary:hover {
+  background: var(--mcdonalds-red);
+  color: var(--white);
+}
+
+.btn-danger {
+  background: var(--error);
+  color: var(--white);
+}
+
+.btn-danger:hover {
+  background: #D32F2F;
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.action-btn {
+    display: flex;
+}
+
+/* Filter Section */
+.filter-section {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--shadow);
+  margin-bottom: 2rem;
+}
+
+.filter-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--mcdonalds-red);
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  padding: 0.75rem;
+  border: 2px solid var(--gray);
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--white);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--mcdonalds-yellow);
+  box-shadow: 0 0 0 3px rgba(255, 199, 44, 0.2);
+}
+
+.form-control.is-invalid {
+  border-color: var(--error);
+}
+
+/* Menu Items Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.menu-item-card {
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--shadow);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px var(--shadow-hover);
+  border-color: var(--mcdonalds-yellow);
+}
+
+.menu-item-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background: var(--light-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray);
+  font-weight: 500;
+}
+
+.menu-item-content {
+  padding: 1.5rem;
+}
+
+.menu-item-name {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--mcdonalds-red);
+  margin-bottom: 0.5rem;
+}
+
+.menu-item-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--mcdonalds-yellow);
+  background: var(--mcdonalds-red);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.menu-item-status {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.status-available {
+  background: var(--success);
+  color: var(--white);
+}
+
+.status-unavailable {
+  background: var(--error);
+  color: var(--white);
+}
+
+.menu-item-category {
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.menu-item-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Forms */
+.form-container {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--shadow);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.image-preview {
+  max-width: 200px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px var(--shadow);
+  margin-top: 0.5rem;
+  align-self: center;
+}
+
+/* Table Styles */
+.table-container {
+  background: var(--white);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--shadow);
+  overflow: hidden;
+}
+
+.menu-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.menu-table th {
+  background: linear-gradient(135deg, var(--mcdonalds-red) 0%, var(--mcdonalds-dark-red) 100%);
+  color: var(--white);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.menu-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--light-gray);
+  vertical-align: middle;
+}
+
+.menu-table tr:hover {
+  background: var(--light-gray);
+}
+
+.table-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+/* Detail View */
+.detail-container {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--shadow);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.detail-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detail-field {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.detail-label {
+  font-weight: bold;
+  color: var(--mcdonalds-red);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.detail-value {
+  color: var(--dark-gray);
+  font-size: 1.1rem;
+}
+
+/* Notifications */
+.notification-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.notification-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.notification {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  transform: scale(0.7);
+  transition: all 0.3s ease;
+}
+
+.notification-overlay.show .notification {
+  transform: scale(1);
+}
+
+.notification-success {
+  border-left: 5px solid var(--success);
+}
+
+.notification-error {
+  border-left: 5px solid var(--error);
+}
+
+.notification-warning {
+  border-left: 5px solid var(--warning);
+}
+
+.notification-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--mcdonalds-red);
+}
+
+.notification-message {
+  color: var(--dark-gray);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.notification-close {
+  background: var(--mcdonalds-yellow);
+  color: var(--mcdonalds-red);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.notification-close:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow);
+}
+
+/* FIXED PAGINATION STYLES */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 2rem 0;
+    padding: 1rem;
+}
+
+.dprev {
+    margin-right: 1rem;
+}
+
+.dnext {
+    margin-left: 1rem;
+}
+
+/* FIXED PAGINATION STYLES */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 2rem 0;
+    padding: 1rem;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px var(--shadow);
+    gap: 0.5rem; /* Add consistent spacing between all elements */
+}
+
+.pagination a,
+.pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+    height: 45px;
+    border: 2px solid var(--light-gray);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--dark-gray);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+    /* Remove individual margins since we're using gap */
+}
+
+.pagination a:hover {
+    background: var(--mcdonalds-red);
+    color: var(--white);
+    border-color: var(--mcdonalds-red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.pagination .active span {
+    background: linear-gradient(135deg, var(--mcdonalds-yellow) 0%, var(--mcdonalds-light-yellow) 100%);
+    color: var(--mcdonalds-red);
+    border-color: var(--mcdonalds-yellow);
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(255, 199, 44, 0.3);
+}
+
+.pagination .disabled span {
+    background: var(--light-gray);
+    color: var(--gray);
+    border-color: var(--light-gray);
+    cursor: not-allowed;
+    opacity: 0.5;
+    padding: 1rem;
+}
+
+
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--gray);
+}
+
+.empty-state-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--mcdonalds-yellow);
+}
+
+.empty-state-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--mcdonalds-red);
+}
+
+.empty-state-message {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* Error Messages */
+.error-list {
+  background: #FFEBEE;
+  border: 1px solid #FFCDD2;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.error-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.error-list li {
+  color: var(--error);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.error-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Loading Animation */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--light-gray);
+  border-radius: 50%;
+  border-top-color: var(--mcdonalds-red);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Floating Action Button */
+.fab {
+    text-decoration: none;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--mcdonalds-yellow) 0%, var(--mcdonalds-light-yellow) 100%);
+    color: var(--mcdonalds-red);
+    border: none;
+    box-shadow: 0 4px 16px var(--shadow-hover);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px var(--shadow-hover);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
