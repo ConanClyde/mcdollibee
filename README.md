@@ -307,10 +307,6 @@ Route::post('/order/confirm', [OrderController::class, 'confirmOrder'])->name('o
 - **Alvin de Mesa** - Lead Developer & Project Creator
 - **Delysha Grace Paz** - Project Partner & Collaborator
 
-## License
-
-This project is open-sourced software licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
 ---
 
 ### Technologies Used
