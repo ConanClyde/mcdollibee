@@ -66,7 +66,7 @@ Follow these steps to set up and run the McDollibee Restaurant Ordering System o
 - PHP >= 8.2
 - Composer
 - Node.js & NPM
-- SQLite (or MySQL/PostgreSQL if preferred)
+- MySQL Server
 
 ### Step 1: Clone the Repository
 ```bash
@@ -95,8 +95,19 @@ php artisan key:generate
 
 ### Step 5: Database Setup
 ```bash
-# Create SQLite database file (if using SQLite)
-touch database/database.sqlite
+# Create a MySQL database named 'mcdollibee'
+# You can do this via phpMyAdmin, MySQL Workbench, or command line:
+# mysql -u root -p
+# CREATE DATABASE mcdollibee;
+# EXIT;
+
+# Update your .env file with MySQL credentials:
+# DB_CONNECTION=mysql
+# DB_HOST=127.0.0.1
+# DB_PORT=3306
+# DB_DATABASE=mcdollibee
+# DB_USERNAME=root
+# DB_PASSWORD=
 
 # Run migrations to create tables
 php artisan migrate
@@ -305,7 +316,7 @@ This project is open-sourced software licensed under the [MIT License](https://o
 ### Technologies Used
 
 - **Backend**: Laravel 12, PHP 8.2
-- **Database**: SQLite (configurable to MySQL/PostgreSQL)
+- **Database**: MySQL
 - **Frontend**: Blade Templates, TailwindCSS (via Vite)
 - **Libraries**: 
   - SimpleSoftwareIO QR Code Generator
