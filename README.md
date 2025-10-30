@@ -1,61 +1,346 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# McDollibee Restaurant Ordering System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Description / Overview
 
-## About Laravel
+**McDollibee** is a comprehensive restaurant ordering and management system built with Laravel 12 and PHP 8.2. This web application serves as a dual-purpose platform that enables restaurant administrators to manage menu items while providing customers with an intuitive ordering interface. The system features a complete CRUD (Create, Read, Update, Delete) functionality for menu management, a session-based shopping cart, and automated QR code generation for order confirmations.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The application streamlines the restaurant ordering process by allowing customers to browse menu items by category, add items to their cart, and receive a unique order number with a QR code receipt upon confirmation. Each order is assigned a sequential table number, making it easy for restaurant staff to track and manage customer orders efficiently.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Objectives
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+The main goals and learning outcomes of this project include:
 
-## Learning Laravel
+- **Master Laravel MVC Architecture**: Implement a full-stack web application using Laravel's Model-View-Controller pattern
+- **Database Design & Relationships**: Create and manage complex database relationships including one-to-many and many-to-many associations
+- **CRUD Operations**: Develop complete Create, Read, Update, and Delete functionality for menu item management
+- **Session Management**: Implement shopping cart functionality using Laravel's session handling
+- **File Upload Handling**: Manage image uploads for menu items with proper validation and storage
+- **QR Code Integration**: Generate dynamic QR codes for order confirmations using the SimpleSoftwareIO QR Code library
+- **User Interface Design**: Create responsive and user-friendly interfaces for both admin and customer-facing pages
+- **Form Validation**: Implement robust server-side validation for data integrity
+- **Routing & Navigation**: Design clean and RESTful routing structures for application navigation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Features / Functionality
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Admin Features
+- **Menu Item Management**
+  - Create new menu items with name, price, category, status, and image
+  - Edit existing menu items
+  - Delete menu items from the system
+  - View all menu items with pagination (5 items per page)
+  - Filter menu items by category and availability status
+  - Upload and manage menu item images
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Customer Features
+- **Browse Menu**
+  - View available menu items organized by categories
+  - Filter items by category (e.g., Burgers, Drinks, Desserts)
+  - See item details including name, price, and image
 
-## Laravel Sponsors
+- **Shopping Cart**
+  - Add items to cart with automatic quantity tracking
+  - Update item quantities in cart
+  - Remove items from cart
+  - View cart summary with total amount calculation
+  - Session-based cart persistence
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **Order Management**
+  - Confirm orders with automatic order number generation (format: ORD-XXXXXX)
+  - Sequential table number assignment (001-999, auto-reset)
+  - QR code generation containing order details, items, and total
+  - Order confirmation page with complete order summary
 
-### Premium Partners
+### System Features
+- **Database Models**: User, Category, MenuItem, Order, OrderItem, Setting
+- **Relationships**: Proper Eloquent relationships between models
+- **Image Storage**: Public disk storage for menu images and QR codes
+- **Validation**: Comprehensive form validation for all inputs
+- **Flash Messages**: Success and error notifications for user actions
+- **Responsive Design**: Mobile-friendly interface
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Installation Instructions
 
-## Contributing
+Follow these steps to set up and run the McDollibee Restaurant Ordering System on your local machine:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Prerequisites
+- PHP >= 8.2
+- Composer
+- Node.js & NPM
+- SQLite (or MySQL/PostgreSQL if preferred)
 
-## Code of Conduct
+### Step 1: Clone the Repository
+```bash
+git clone <repository-url>
+cd mcdollibee
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Step 2: Install PHP Dependencies
+```bash
+composer install
+```
 
-## Security Vulnerabilities
+### Step 3: Install JavaScript Dependencies
+```bash
+npm install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Step 4: Environment Configuration
+```bash
+# Copy the example environment file
+cp .env.example .env
+
+# Generate application key
+php artisan key:generate
+```
+
+### Step 5: Database Setup
+```bash
+# Create SQLite database file (if using SQLite)
+touch database/database.sqlite
+
+# Run migrations to create tables
+php artisan migrate
+
+# (Optional) Seed the database with sample data
+php artisan db:seed
+```
+
+### Step 6: Storage Link
+```bash
+# Create symbolic link for public storage
+php artisan storage:link
+```
+
+### Step 7: Run the Application
+```bash
+# Option 1: Using Laravel's built-in server
+php artisan serve
+
+# Option 2: Using the custom dev script (runs server, queue, logs, and vite)
+composer dev
+```
+
+The application will be available at `http://localhost:8000`
+
+## Usage
+
+### For Administrators
+
+1. **Access Admin Dashboard**
+   - Navigate to `http://localhost:8000`
+   - You'll see the menu items management page
+
+2. **Create a New Menu Item**
+   - Click "Create New Menu Item" button
+   - Fill in the form:
+     - Name: Enter the item name (e.g., "Cheeseburger")
+     - Price: Enter the price (e.g., 150.00)
+     - Category: Select from dropdown (Burgers, Drinks, etc.)
+     - Status: Choose "Available" or "Not Available"
+     - Image: Upload an image file (JPG, JPEG, PNG, max 4MB)
+   - Click "Save" to create the item
+
+3. **Edit Menu Item**
+   - Click "Edit" button next to any menu item
+   - Update the desired fields
+   - Click "Update" to save changes
+
+4. **Delete Menu Item**
+   - Click "Delete" button next to any menu item
+   - Confirm the deletion
+
+5. **Filter Menu Items**
+   - Use the category dropdown to filter by category
+   - Use the status dropdown to filter by availability
+
+### For Customers
+
+1. **Browse Menu**
+   - Navigate to `http://localhost:8000/order`
+   - Click on category tabs to view items by category
+
+2. **Add Items to Cart**
+   - Click "Add to Cart" button on any available menu item
+   - Item will be added with quantity of 1
+   - Clicking again will increment the quantity
+
+3. **View Cart**
+   - Click "View Cart" or navigate to `/order/cart`
+   - See all items in your cart with quantities and prices
+
+4. **Update Cart**
+   - Change quantity using the input field
+   - Click "Update" to apply changes
+   - Click "Remove" to delete an item from cart
+
+5. **Confirm Order**
+   - Review your cart items and total
+   - Click "Confirm Order" button
+   - You'll receive:
+     - Unique order number (e.g., ORD-A1B2C3)
+     - Table number (e.g., 001)
+     - QR code with order details
+     - Order summary with all items and total amount
+
+## Screenshots or Code Snippets
+
+### Database Schema
+
+**Menu Items Table Migration**
+```php
+Schema::create('menu_items', function (Blueprint $table) {
+    $table->id();
+    $table->string('name');
+    $table->decimal('price', 8, 2);
+    $table->enum('status', ['Available', 'Not Available']);
+    $table->string('image')->nullable();
+    $table->foreignId('category_id')->constrained()->onDelete('cascade');
+    $table->timestamps();
+});
+```
+
+### Key Code Examples
+
+**Adding Item to Cart (OrderController.php)**
+```php
+public function addToCart(Request $request, $id)
+{
+    $menuItem = MenuItem::findOrFail($id);
+    $cart = session()->get('cart', []);
+
+    if (isset($cart[$id])) {
+        $cart[$id]['quantity']++;
+    } else {
+        $cart[$id] = [
+            "name"     => $menuItem->name,
+            "price"    => $menuItem->price,
+            "image"    => $menuItem->image,
+            "quantity" => 1,
+        ];
+    }
+
+    session()->put('cart', $cart);
+    return redirect()->back()->with('success', "{$menuItem->name} added to cart.");
+}
+```
+
+**QR Code Generation**
+```php
+public function confirmOrder(Request $request, Generator $qrCode)
+{
+    // ... order creation logic ...
+    
+    $qrContent = "Order: {$order->order_number}\n";
+    $qrContent .= "Table: {$order->table_number}\n";
+    $qrContent .= "-------------------------\n";
+    
+    foreach ($order->items as $item) {
+        $lineTotal = $item->price * $item->quantity;
+        $qrContent .= "{$item->quantity}x {$item->menuItem->name} - ₱"
+                    . number_format($lineTotal, 2) . "\n";
+    }
+    
+    $qrContent .= "-------------------------\n";
+    $qrContent .= "TOTAL: ₱" . number_format($order->total_amount, 2);
+    
+    $qrPath = "qrcodes/{$order->order_number}.svg";
+    $svgData = $qrCode->encoding('UTF-8')->format('svg')->size(300)->generate($qrContent);
+    Storage::disk('public')->put($qrPath, $svgData);
+    
+    $order->update(['qr_code' => $qrPath]);
+}
+```
+
+**Eloquent Relationships (MenuItem Model)**
+```php
+class MenuItem extends Model
+{
+    protected $fillable = [
+        'name', 'price', 'status', 'image', 'category_id',
+    ];
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function scopeAvailable($query)
+    {
+        return $query->where('status', 'Available');
+    }
+}
+```
+
+### Routes Configuration
+```php
+// Admin side - Menu item management
+Route::get('/', [MenuItemController::class, 'index']);
+Route::resource('menu_items', MenuItemController::class);
+
+// Customer side - Ordering
+Route::get('/order/{category?}', [OrderController::class, 'create'])->name('orders.create');
+Route::get('/order/cart', [OrderController::class, 'viewCart'])->name('orders.cart');
+Route::post('/order/add/{id}', [OrderController::class, 'addToCart'])->name('orders.add');
+Route::post('/order/update/{id}', [OrderController::class, 'updateCart'])->name('orders.update');
+Route::post('/order/remove/{id}', [OrderController::class, 'removeFromCart'])->name('orders.remove');
+Route::post('/order/confirm', [OrderController::class, 'confirmOrder'])->name('orders.confirm');
+```
+
+## Contributors
+
+- **Alvin de Mesa** - Lead Developer & Project Creator
+- **Delysha Grace Paz** - Project Partner & Collaborator
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+---
+
+### Technologies Used
+
+- **Backend**: Laravel 12, PHP 8.2
+- **Database**: SQLite (configurable to MySQL/PostgreSQL)
+- **Frontend**: Blade Templates, TailwindCSS (via Vite)
+- **Libraries**: 
+  - SimpleSoftwareIO QR Code Generator
+  - Laravel IDE Helper
+  - Faker (for testing)
+- **Tools**: Composer, NPM, Vite
+
+### Project Structure
+```
+mcdollibee/
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── MenuItemController.php
+│   │   ├── OrderController.php
+│   │   └── CategoryController.php
+│   └── Models/
+│       ├── MenuItem.php
+│       ├── Order.php
+│       ├── OrderItem.php
+│       ├── Category.php
+│       └── Setting.php
+├── database/
+│   ├── migrations/
+│   └── seeders/
+├── resources/
+│   └── views/
+│       ├── menu_item/
+│       └── orders/
+├── routes/
+│   └── web.php
+└── public/
+    └── images/
+```
+
+---
+
+**Developed as a Midterm Examination Project**  
+*Demonstrating proficiency in Laravel framework, database design, and full-stack web development*
